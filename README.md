@@ -2,6 +2,7 @@
 
 In this repo, I just play around with angularJS and testing in order to learn more about it.
 
+- In this project, I used Yeoman in order to setup the scaffolding of the application (in previous projects, I set it up manually)
 
 # sw-front
 
