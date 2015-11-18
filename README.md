@@ -1,3 +1,8 @@
+# Angular playground
+
+In this repo, I just play around with angularJS and testing in order to learn more about it.
+
+
 # sw-front
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
