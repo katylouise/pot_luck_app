@@ -9,6 +9,7 @@
  */
 angular.module('swFrontApp')
   .controller('MainCtrl', function () {
+    // $resource('/api/edges').query();
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
