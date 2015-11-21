@@ -29,6 +29,11 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/edges', {
+        templateUrl: 'views/edges.html',
+        controller: 'EdgesController',
+        controllerAs: 'edges'
+      })
       .otherwise({
         redirectTo: '/'
       });
