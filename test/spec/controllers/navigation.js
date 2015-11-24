@@ -28,6 +28,11 @@ describe('Controller: NavigationController', function () {
       expect(scope.isActive('/test')).toBeTruthy();
     });
 
+    it('returns true when paths start with the same word and one is followed by a query string', function() {
+      location.path('/test?id=1');
+      expect(scope.isActive('/test')).toBeTruthy();
+    });
+
   });
 
 });
