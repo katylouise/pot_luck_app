@@ -23,6 +23,11 @@ describe('Controller: NavigationController', function () {
       expect(scope.isActive('/test')).toBeFalsy();
     });
 
+    it('returns true when paths start with the same word', function() {
+      location.path('/test/about/something');
+      expect(scope.isActive('/test')).toBeTruthy();
+    });
+
   });
 
 });
