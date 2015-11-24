@@ -17,6 +17,12 @@ describe('Controller: NavigationController', function () {
       location.path('/test');
       expect(scope.isActive('/test')).toBeTruthy();
     });
+
+    it('returns false when paths are not the same', function() {
+      location.path('/differentPath');
+      expect(scope.isActive('/test')).toBeFalsy();
+    });
+
   });
 
 });
