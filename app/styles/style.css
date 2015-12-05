@@ -29,11 +29,13 @@
 .avatar {
   width: auto;
   height: 50px;
+  background-color: white;
 }
 
-.people-list {
+.people-list, .ingredients-list {
   list-style-type: none;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .lets-go-button {

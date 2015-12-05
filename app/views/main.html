@@ -6,8 +6,11 @@
         <input type="text" class="" ng-model="ingredientSearchTerm" placeholder="I need...">
         <button class="btn btn-success" type="submit" ng-click="addIngredient()">Add Ingredient</button>
       </form>
-      <ul class="list-group">
-        <li></li>
+      <h3 class="text-center">Shopping List</h3>
+      <ul class="ingredients-list list-group">
+        <li ng-repeat="ingredient in ingredients">
+          {{ ingredient }}
+        </li>
       </ul>
     </div>
 
@@ -19,9 +22,17 @@
       </form>
       <ul class="people-list list-group">
         <li ng-repeat="person in people">
-          <img class="avatar img-circle" ng-src="{{ person.image }}">
+          <button ng-click="addPersonToList({{ person }})"><img class="avatar img-circle" ng-src="{{ person.image }}"></button>
           {{ person.name }}
         </li>
+      </ul>
+
+      <h3 class="text-center">Attending</h3>
+      <ul class="people-list list-group">
+      <li ng-repeat="guest in partyGuests">
+        <img class="avatar img-circle" ng-src="{{ guest.image }}">
+          {{ guest.name }}
+      </li>
       </ul>
     </div>
   </div>
