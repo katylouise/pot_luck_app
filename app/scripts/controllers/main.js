@@ -23,17 +23,21 @@ angular.module('swFrontApp')
       $scope.people = [];
     }
 
-    $scope.addIngredientsAndShopToList = function() {
+    $scope.findShop = function() {
       shops = $http({method: 'GET', url: '/data/shops.json'});
       shops.then(function(success) {
-        $scope.shop = success.data.filter(function(shop) {
+        $scope.shops = success.data.filter(function(shop) {
           return shop.items.indexOf($scope.ingredientSearchTerm) > -1;
         });
-        if ($scope.shop.length === 0) {
-          $scope.shop = [{ "name" : "Not in database - find it yourself!"} ];
+        if ($scope.shops.length === 0) {
+          $scope.shops = [{ "name" : "Not in database - find it yourself!"}];
         }
-        $scope.ingredients.push({ "ingredient": $scope.ingredientSearchTerm, "shop": $scope.shop[0] });
       });
+    }
+
+    $scope.addIngredientsAndShopToList = function(shop) {
+      $scope.ingredients.push({ "ingredient": $scope.ingredientSearchTerm, "shop": shop });
+      $scope.shops = [];
     }
 
   });
