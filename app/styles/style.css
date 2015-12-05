@@ -2,6 +2,38 @@
   font-family: 'Lato', sans-serif;
 }
 
+.navbar {
+  background-color: #099703;
+}
+
+.navbar .navbar-header .app-title, .navbar .nav li a {
+  color: white;
+}
+
 .main {
   max-width: 800px;
+}
+
+.ingredients, .people {
+  min-height: 500px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.lets-go-button {
+  margin-bottom: 30px;
+}
+
+footer {
+  padding-top: 10px;
+  margin-top: 50px;
+  height: 70px;
+  background-color: #F5F5F5;
+  padding-left: 50px;
+}
+
+footer a {
+  color: ;
 }
