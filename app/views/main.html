@@ -4,14 +4,23 @@
       <h1 class="text-center">Ingredients</h1>
       <form class="text-center">
         <input type="text" class="" ng-model="ingredientSearchTerm" placeholder="I need...">
-        <button class="btn btn-success" type="submit" ng-click="addIngredient()">Add Ingredient</button>
+        <button class="btn btn-success" type="submit" ng-click="findShop()">Add Ingredient</button>
       </form>
-      <h3 class="text-center">Shopping List</h3>
       <ul class="ingredients-list list-group">
-        <li ng-repeat="ingredient in ingredients">
-          {{ ingredient }}
+        <li ng-repeat="shop in shops">
+          <button ng-click="addIngredientsAndShopToList({{ shop }})"><img class="avatar img-circle" ng-src="{{ shop.photo }}"></button>
+          {{ shop.name }} - {{ ingredientSearchTerm }}
         </li>
       </ul>
+
+      <h3 class="text-center">Shopping List</h3>
+      <ul class="ingredients-list list-group">
+        <li ng-repeat="item in ingredients">
+          <img class="avatar img-circle" ng-src="{{ item.shop.photo }}">
+          {{item.shop.name }} - {{ item.ingredient }}
+        </li>
+      </ul>
+
     </div>
 
     <div class="people col-md-5 col-md-offset-2 col-border">
