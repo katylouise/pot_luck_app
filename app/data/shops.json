@@ -2,7 +2,7 @@
   {
     "name" : "Bottle Apostle",
     "postcode" : "E9 7HJ",
-    "photo" : "",
+    "photo" : "assets/images/shops/1.jpg",
     "items" :["red wine",
               "white wine",
               "merlot",
@@ -14,7 +14,7 @@
   {
     "name" : "Ginger Pig",
     "postcode" : "SW13 9HH",
-    "photo" : "",
+    "photo" : "assets/images/shops/2.jpg",
     "items" : ["meat",
               "chicken",
                "bacon",
@@ -24,7 +24,7 @@
   {
     "name" : "East London Liquor Company",
     "postcode" : "E3 5SN",
-    "photo" : "",
+    "photo" : "assets/images/shops/3.jpg",
     "items" :["gin",
               "sloe gin",
               "whisky",
@@ -34,7 +34,7 @@
   {
     "name" : "La Fromagerie",
     "postcode" : "W1U 4EW",
-    "photo" : "",
+    "photo" : "assets/images/shops/4.jpg",
     "items" : ["cheese",
               "camebert",
               "cheddar",
@@ -43,14 +43,14 @@
   {
     "name" : "Anthropologie",
     "postcode" : "W1B 5SW",
-    "photo" : "",
+    "photo" : "assets/images/shops/5.jpg",
     "items" :["pinata"]
   },
   {
-    "name" : "",
-    "postcode" : "",
-    "photo" : "",
-    "items" :[]
+    "name" : "Copper Box Arena",
+    "postcode" : "E20 3HB",
+    "photo" : "assets/images/shops/6.jpg",
+    "items" :["programmers",
+              "prizes" ]
   }
-
 ]
