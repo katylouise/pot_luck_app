@@ -1,1 +1,7 @@
-style.css
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+.main {
+  max-width: 800px;
+}
