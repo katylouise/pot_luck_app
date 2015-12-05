@@ -7,7 +7,7 @@
         <button class="btn btn-success" type="submit" ng-click="addIngredient()">Add Ingredient</button>
       </form>
       <ul class="list-group">
-        <li ng-repeat=""></li>
+        <li></li>
       </ul>
     </div>
 
@@ -18,9 +18,9 @@
         <button class="btn btn-success" type="submit" ng-click="findPerson()">Find Friend</button>
       </form>
       <ul class="list-group">
-        <li ng-repeat="">
+        <li ng-repeat="person in people">
           <img class="img-circle" ng-src="">
-          <p>{{}}</p>
+          <p>{{ person.name }}</p>
         </li>
       </ul>
     </div>
