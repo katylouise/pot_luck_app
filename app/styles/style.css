@@ -22,6 +22,10 @@
   margin-bottom: 30px;
 }
 
+.ingredients h1, .people h1 {
+  margin-bottom: 10px;
+}
+
 .lets-go-button {
   margin-bottom: 30px;
 }
