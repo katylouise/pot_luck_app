@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Angular playground
 
 In this repo, I just play around with angularJS and testing in order to learn more about it.
@@ -16,3 +17,6 @@ Run `grunt` for building and `grunt serve` for preview.
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+=======
+# Pot Luck
+>>>>>>> 1bb15625b4dbe87c8c96f6aaacc0c14b7675aa43
