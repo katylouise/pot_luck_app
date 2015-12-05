@@ -2,49 +2,49 @@
   {
     "name" : "Lewis",
     "postcode" : "E18 2AE",
-    "image" : "assets/images/people/1.jpg",
+    "image" : "images/people/1.jpg",
     "phone" : "+447572437603"
   },
   {
     "name" : "Chris",
     "postcode" : "E11 4EU",
-    "image" : "assets/images/people/2.jpg",
+    "image" : "images/people/2.jpg",
     "phone" : "+447711623411"
   },
   {
     "name" : "Diego",
     "postcode" : "SW11 2PY",
-    "image" : "assets/images/people/3.jpg",
+    "image" : "images/people/3.jpg",
     "phone" : "+447496548640"
   },
   {
     "name" : "Giuseppe",
     "postcode" : "E2 9JN",
-    "image" : "assets/images/people/4.jpg",
-    "phone" : "+447460959285" 
+    "image" : "images/people/4.jpg",
+    "phone" : "+447460959285"
   },
   {
     "name" : "Rebecca",
     "postcode" : "E2 0SE",
-    "image" : "assets/images/people/5.jpg",
+    "image" : "images/people/5.jpg",
     "phone" : "+447761239717"
   },
   {
     "name" : "Nikesh",
     "postcode" : "E1 6LT",
-    "image" : "assets/images/people/6.jpg",
+    "image" : "images/people/6.jpg",
     "phone" : "+4407557795448"
   },
   {
     "name" : "Theo",
     "postcode" : "EN5 1SA",
-    "image" : "assets/images/people/7.jpg",
+    "image" : "images/people/7.jpg",
     "phone" : "+447785244600"
   },
   {
     "name" : "Emily",
     "postcode" : "E3 4DH",
-    "image" : "assets/images/people/8.jpg",
+    "image" : "images/people/8.jpg",
     "phone" : "+447985177537"
   }
 

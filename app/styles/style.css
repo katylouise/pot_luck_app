@@ -26,6 +26,16 @@
   margin-bottom: 10px;
 }
 
+.avatar {
+  width: auto;
+  height: 50px;
+}
+
+.people-list {
+  list-style-type: none;
+  text-align: center;
+}
+
 .lets-go-button {
   margin-bottom: 30px;
 }

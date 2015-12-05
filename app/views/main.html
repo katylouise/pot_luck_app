@@ -14,13 +14,13 @@
     <div class="people col-md-5 col-md-offset-2 col-border">
       <h1 class="text-center">People</h1>
       <form class="text-center">
-        <input type="text" class="" ng-model="friendSearchTerm" placeholder="Add a friend">
+        <input type="text" class="" ng-model="friendSearchTerm" ng-change="findPerson()" ng-model-options="{ updateOn: 'defaultBlur', debounce: { 'default': 500, 'blur': 0 } }" placeholder="Add a friend">
         <button class="btn btn-success" type="submit" ng-click="findPerson()">Find Friend</button>
       </form>
-      <ul class="list-group">
+      <ul class="people-list list-group">
         <li ng-repeat="person in people">
-          <img class="img-circle" ng-src="">
-          <p>{{ person.name }}</p>
+          <img class="avatar img-circle" ng-src="{{ person.image }}">
+          {{ person.name }}
         </li>
       </ul>
     </div>
