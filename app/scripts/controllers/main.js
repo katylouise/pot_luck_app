@@ -23,10 +23,6 @@ angular.module('swFrontApp')
           zoom: 12
         });
         var locationLayer = new GraphicsLayer();
-        // var point = new Point(0,51.5);
-        // var symbol = new SimpleMarkerSymbol().setColor("#1036DE").setSize(14);
-        // var graphic = new Graphic(point, symbol);
-        // var infoTemplate = new InfoTemplate();
         // locationLayer.add(graphic);
         // graphic.setInfoTemplate(infoTemplate);
         // map.addLayer(locationLayer);  // Makes sure that map is loaded
@@ -38,9 +34,43 @@ angular.module('swFrontApp')
             var latitude = array[i].coords[0];
             var point = new Point(longitude, latitude);
             var symbol = new SimpleMarkerSymbol().setColor("#1036DE").setSize(14);
+            var infoTemplate = new InfoTemplate();
+            infoTemplate.setTitle(array[i].name);
+            infoTemplate.setContent(array[i].postcode);
             var graphic = new Graphic(point, symbol);
             locationLayer.add(graphic);
+            graphic.setInfoTemplate(infoTemplate);
             console.log("I am working");
+          }
+          map.addLayer(locationLayer);
+        }
+    var people;
+    var shops;
+    var shopsArr;
+
+    $scope.findPerson = function() {
+      people = $http({method: 'GET', url: '/data/people.json'});
+      people.then(function(success) {
+        $scope.people = success.data.filter(function(person) {
+          return person.name.toLowerCase() === $scope.friendSearchTerm.toLowerCase();
+        });
+      });
+    }
+
+
+    function drawShopOnMap(array, ingredient){
+          for(var i=0; i<array.length; i++){
+            var longitude = array[i].coords[1];
+            var latitude = array[i].coords[0];
+            var point = new Point(longitude, latitude);
+            var symbol = new SimpleMarkerSymbol().setColor("#FE2E2E").setSize(14);
+            var infoTemplate = new InfoTemplate();
+            infoTemplate.setTitle(array[i].name);
+            console.log(ingredient)
+            infoTemplate.setContent(ingredient + ", " + array[i].postcode);
+            var graphic = new Graphic(point, symbol);
+            locationLayer.add(graphic);
+            graphic.setInfoTemplate(infoTemplate);
           }
           map.addLayer(locationLayer);
         }
@@ -75,9 +105,14 @@ angular.module('swFrontApp')
       });
     }
 
+    $scope.selectedShops =[]
+
     $scope.addIngredientsAndShopToList = function(shop) {
       $scope.ingredients.push({ "ingredient": $scope.ingredientSearchTerm, "shop": shop });
       $scope.shops = [];
+      $scope.selectedShops.push(shop);
+      console.log($scope.selectedShops);
+      drawShopOnMap($scope.selectedShops, $scope.ingredientSearchTerm);
     }
 
   }
