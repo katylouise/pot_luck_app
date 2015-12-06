@@ -1,14 +1,6 @@
 'use strict';
 
 angular.module('swFrontApp')
-  .config(function(TwilioProvider) {
-    // var accountSID = 'AC98d3efd00c4a9a7bbb98fc8f86d2308a';
-    // var authToken = '7872f37eb4c6ff5b8dd181d98f99a4ba';
-     TwilioProvider.setCredentials({
-         accountSid: 'AC98d3efd00c4a9a7bbb98fc8f86d2308a',
-         authToken: '7872f37eb4c6ff5b8dd181d98f99a4ba'
-     });
-   })
   .controller('MainCtrl', function($scope, $http, Twilio) {
     $scope.partyGuests = [];
     $scope.ingredients = [];
@@ -47,26 +39,15 @@ angular.module('swFrontApp')
       $scope.ingredients.push({ "ingredient": $scope.ingredientSearchTerm, "shop": shop });
       $scope.shops = [];
     }
+
     $scope.sendSms = function() {
-      Twilio.create('Messages', {
-        to:   '+447496548640', // Any number Twilio can deliver to
-        from: '+441702680429', // A number you bought from Twilio and can use for outbound communication
-        body: 'You need to buy...' // body of the SMS message
-      })
-      .success(function(data, status, headers, config) {
-        console.log("SUCCESS SMS SENT");
-      })
-      .error(function(data, status, headers, config) {
-        console.log("ERROR SMS NOT SENT");
-      });
-    };
-});
-    // $scope.sendSms = function() {
-    //   console.log("Do i get here?");
-    //   var ourdata = { 'phone': 'hello' };
-    //   $http.post('/sendsms/party', ourdata ).
-    //     then(function() { console.log("posted");}), function() {
-    //       console.log("didnt go through")
-    //     });
-      // .then(successCallback, errorCallback);
-    // };
+      console.log("Do i get here?");
+
+      $http.post('/sendsms/party', $scope.partyGuests)
+        .then(function successCallback(data) {
+         console.log("posted");
+        }, function errorCallback(data) {
+          console.log("didnt go through");
+        });
+      }
+    });

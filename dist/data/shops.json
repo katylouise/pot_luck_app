@@ -1,0 +1,62 @@
+[
+  {
+    "name" : "Bottle Apostle",
+    "postcode" : "E9 7HJ",
+    "coords" : "51.53737656772019,-0.0442998893559",
+    "photo" : "images/shops/1.jpg",
+    "items" :["red wine",
+              "white wine",
+              "merlot",
+              "champagne",
+              "malbec",
+              "sauvignon blanc",
+              "sancerre"]
+  },
+  {
+    "name" : "Ginger Pig",
+    "postcode" : "SW13 9HH",
+    "coords" : "51.47435395382514,-0.2440284788608",
+    "photo" : "images/shops/2.jpg",
+    "items" : ["meat",
+              "chicken",
+               "bacon",
+               "wild boar",
+               "goose"]
+  },
+  {
+    "name" : "East London Liquor Company",
+    "postcode" : "E3 5SN",
+    "coords" : "51.531963512268476,-0.04212410002946",
+    "photo" : "images/shops/3.jpg",
+    "items" :["gin",
+              "sloe gin",
+              "whisky",
+              "campari",
+              "vermouth"]
+  },
+  {
+    "name" : "La Fromagerie",
+    "postcode" : "W1U 4EW",
+    "coords" : "51.51993577171935,-0.1522312909364",
+    "photo" : "images/shops/4.jpg",
+    "items" : ["cheese",
+              "camembert",
+              "cheddar",
+              "stilton" ]
+  },
+  {
+    "name" : "Anthropologie",
+    "postcode" : "W1B 5SW",
+    "coords" : "51.5120660512142,-0.139118045568",
+    "photo" : "images/shops/5.jpg",
+    "items" :["pinata"]
+  },
+  {
+    "name" : "Copper Box Arena",
+    "postcode" : "E20 3HB",
+    "coords" : "51.5442239493522,-0.019964721053",
+    "photo" : "images/shops/6.jpg",
+    "items" :["programmers",
+              "prizes" ]
+  }
+]

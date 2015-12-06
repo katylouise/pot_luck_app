@@ -48,6 +48,7 @@
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "gzippo": "^0.2.0",
+    "http-server": "^0.8.5",
     "morgan": "^1.6.1",
     "twilio": "^2.6.0"
   }
