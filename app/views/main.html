@@ -8,7 +8,7 @@
       </form>
       <ul class="ingredients-list list-group">
         <li ng-repeat="shop in shops">
-          <button ng-click="addIngredientsAndShopToList({{ shop }})"><img class="avatar img-circle" ng-src="{{ shop.photo }}"></button>
+          <a class="btn" ng-click="addIngredientsAndShopToList({{ shop }})"><img class="avatar img-circle" ng-src="{{ shop.photo }}"></a>
           {{ shop.name }} - {{ ingredientSearchTerm }}
         </li>
       </ul>
@@ -31,7 +31,7 @@
       </form>
       <ul class="people-list list-group">
         <li ng-repeat="person in people">
-          <button ng-click="addPersonToList({{ person }})"><img class="avatar img-circle" ng-src="{{ person.image }}"></button>
+          <a ng-click="addPersonToList({{ person }})"><img class="avatar img-circle" ng-src="{{ person.image }}"></a>
           {{ person.name }}
         </li>
       </ul>
