@@ -111,8 +111,31 @@ angular.module('swFrontApp')
       $scope.ingredients.push({ "ingredient": $scope.ingredientSearchTerm, "shop": shop });
       $scope.shops = [];
       $scope.selectedShops.push(shop);
-      console.log($scope.selectedShops);
       drawShopOnMap($scope.selectedShops, $scope.ingredientSearchTerm);
+    }
+
+    $scope.calculateDistance = function(coords1, coords2){
+      var difflong = coords1[0] - coords2[0];
+      var difflat = coords1[1] - coords2[1];
+      var distance = Math.sqrt((difflong*difflong)+(difflat*difflat));
+      return distance;
+    }
+
+    $scope.peopleShopsToCollect = []
+
+    $scope.assignItems = function() {
+      for(var i=0; i<$scope.selectedShops.length; i++){
+        var distances = [];
+        for(var j=0; j<$scope.partyGuests.length; j++){
+          distances.push({"person": $scope.partyGuests[j].name, "phone" : $scope.partyGuests[j].phone, "index" : j, "distance":$scope.calculateDistance($scope.selectedShops[i].coords, $scope.partyGuests[j].coords), "shop" : $scope.selectedShops[i].name });
+        }
+        distances.sort(function(a, b) {
+          return a.distance-b.distance
+        })
+       $scope.peopleShopsToCollect.push(distances[0]);
+       console.log($scope.peopleShopsToCollect);
+       $scope.partyGuests.splice(distances[0].index, 1)
+      }
     }
 
     $scope.sendSms = function() {
