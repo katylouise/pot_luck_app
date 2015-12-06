@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('swFrontApp')
-  .controller('MainCtrl', function($scope, $http) {
+  .controller('MainCtrl', function($scope, $http, Twilio) {
     $scope.partyGuests = [];
     $scope.ingredients = [];
 
@@ -16,7 +16,7 @@ angular.module('swFrontApp')
       ],
       everythingElse)
 
-      function everythingElse(Map, Graphic, GraphicsLayer, Point, SimpleMarkerSymbol, InfoTemplate) {
+    function everythingElse(Map, Graphic, GraphicsLayer, Point, SimpleMarkerSymbol, InfoTemplate) {
         var map = new Map("map", {
           basemap: "gray",
           center: [0,51.5], // longitude, latitude
@@ -105,7 +105,7 @@ angular.module('swFrontApp')
       });
     }
 
-    $scope.selectedShops =[]
+    $scope.selectedShops =[];
 
     $scope.addIngredientsAndShopToList = function(shop) {
       $scope.ingredients.push({ "ingredient": $scope.ingredientSearchTerm, "shop": shop });
@@ -115,5 +115,15 @@ angular.module('swFrontApp')
       drawShopOnMap($scope.selectedShops, $scope.ingredientSearchTerm);
     }
 
+    $scope.sendSms = function() {
+      console.log("Do i get here?");
+
+      $http.post('/sendsms/party', $scope.partyGuests)
+        .then(function successCallback(data) {
+         console.log("posted");
+        }, function errorCallback(data) {
+          console.log("didnt go through");
+        });
+      }
   }
-})
+});
