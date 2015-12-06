@@ -111,8 +111,23 @@ angular.module('swFrontApp')
       $scope.ingredients.push({ "ingredient": $scope.ingredientSearchTerm, "shop": shop });
       $scope.shops = [];
       $scope.selectedShops.push(shop);
-      console.log($scope.selectedShops);
       drawShopOnMap($scope.selectedShops, $scope.ingredientSearchTerm);
+    }
+
+    function calculateDistance(coords1, coords2){
+      difflong = coords1[0] - coords2[0];
+      difflat = coords1[1] - coords2[1];
+      var distance = Math.sqrt((difflong*difflong)+(difflat*difflat));
+    }
+
+    function assignItems() {
+      for(var i=0; i<$scope.selectedShops; i++){
+        var distances;
+        for(var j=0; j<$scope.partyGuests; j++){
+          distances.push({"person": partyGuests[i].name, "distance": calculateDistance($scope.selectedShops[i].coords, $scope.partyGuests[i].coords)});
+        }
+
+      }
     }
 
   }
