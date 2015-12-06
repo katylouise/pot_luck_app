@@ -114,19 +114,27 @@ angular.module('swFrontApp')
       drawShopOnMap($scope.selectedShops, $scope.ingredientSearchTerm);
     }
 
-    function calculateDistance(coords1, coords2){
-      difflong = coords1[0] - coords2[0];
-      difflat = coords1[1] - coords2[1];
+    $scope.calculateDistance = function(coords1, coords2){
+      var difflong = coords1[0] - coords2[0];
+      var difflat = coords1[1] - coords2[1];
       var distance = Math.sqrt((difflong*difflong)+(difflat*difflat));
     }
 
-    function assignItems() {
-      for(var i=0; i<$scope.selectedShops; i++){
-        var distances;
-        for(var j=0; j<$scope.partyGuests; j++){
-          distances.push({"person": partyGuests[i].name, "distance": calculateDistance($scope.selectedShops[i].coords, $scope.partyGuests[i].coords)});
-        }
+    $scope.peopleShopsToCollect = []
 
+    $scope.assignItems = function() {
+      console.log($scope.selectedShops);
+      for(var i=0; i<$scope.selectedShops.length; i++){
+        var distances = [];
+        for(var j=0; j<$scope.partyGuests.length; j++){
+          distances.push({"person": $scope.partyGuests[j].name, "index" : j, "distance":$scope.calculateDistance($scope.selectedShops[i].coords, $scope.partyGuests[j].coords)});
+          console.log(distances);
+        }
+        distances.sort(function(a, b) {
+          return a.distance-b.distance
+        })
+       $scope.peopleShopsToCollect.push(distances[0]);
+       $scope.partyGuests.splice(distances[0].index, 1)
       }
     }
 
