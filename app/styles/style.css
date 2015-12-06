@@ -29,7 +29,15 @@
 .avatar {
   width: auto;
   height: 50px;
-  background-color: white;
+  padding: 5px;
+}
+
+.input_box {
+  height: 33px;
+  border-radius: 4px;
+  padding: 2px;
+  margin-right: 5px;
+  margin-top: 10px;
 }
 
 .people-list, .ingredients-list {
@@ -40,6 +48,11 @@
 
 .lets-go-button {
   margin-bottom: 30px;
+}
+
+.message {
+  display: none;
+  margin-bottom: 10px;
 }
 
 footer {

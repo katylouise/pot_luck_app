@@ -139,14 +139,14 @@ angular.module('swFrontApp')
     }
 
     $scope.sendSms = function() {
-      console.log("Do i get here?");
-
       $http.post('/sendsms/party', $scope.partyGuests)
         .then(function successCallback(data) {
          console.log("posted");
         }, function errorCallback(data) {
           console.log("didnt go through");
         });
+        angular.element('.message').show();
       }
-  }
+
+    }
 });
