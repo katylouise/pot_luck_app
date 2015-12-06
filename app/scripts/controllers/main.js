@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('swFrontApp')
-  .controller('MainCtrl', function($scope, $http) {
+  .controller('MainCtrl', function($scope, $http, Twilio) {
     $scope.partyGuests = [];
     $scope.ingredients = [];
 
@@ -16,7 +16,7 @@ angular.module('swFrontApp')
       ],
       everythingElse)
 
-      function everythingElse(Map, Graphic, GraphicsLayer, Point, SimpleMarkerSymbol, InfoTemplate) {
+    function everythingElse(Map, Graphic, GraphicsLayer, Point, SimpleMarkerSymbol, InfoTemplate) {
         var map = new Map("map", {
           basemap: "gray",
           center: [0,51.5], // longitude, latitude
@@ -105,7 +105,7 @@ angular.module('swFrontApp')
       });
     }
 
-    $scope.selectedShops =[]
+    $scope.selectedShops =[];
 
     $scope.addIngredientsAndShopToList = function(shop) {
       $scope.ingredients.push({ "ingredient": $scope.ingredientSearchTerm, "shop": shop });
@@ -118,25 +118,35 @@ angular.module('swFrontApp')
       var difflong = coords1[0] - coords2[0];
       var difflat = coords1[1] - coords2[1];
       var distance = Math.sqrt((difflong*difflong)+(difflat*difflat));
+      return distance;
     }
 
     $scope.peopleShopsToCollect = []
 
     $scope.assignItems = function() {
-      console.log($scope.selectedShops);
       for(var i=0; i<$scope.selectedShops.length; i++){
         var distances = [];
         for(var j=0; j<$scope.partyGuests.length; j++){
-          distances.push({"person": $scope.partyGuests[j].name, "index" : j, "distance":$scope.calculateDistance($scope.selectedShops[i].coords, $scope.partyGuests[j].coords)});
-          console.log(distances);
+          distances.push({"person": $scope.partyGuests[j].name, "phone" : $scope.partyGuests[j].phone, "index" : j, "distance":$scope.calculateDistance($scope.selectedShops[i].coords, $scope.partyGuests[j].coords), "shop" : $scope.selectedShops[i].name });
         }
         distances.sort(function(a, b) {
           return a.distance-b.distance
         })
        $scope.peopleShopsToCollect.push(distances[0]);
+       console.log($scope.peopleShopsToCollect);
        $scope.partyGuests.splice(distances[0].index, 1)
       }
     }
 
+    $scope.sendSms = function() {
+      console.log("Do i get here?");
+
+      $http.post('/sendsms/party', $scope.partyGuests)
+        .then(function successCallback(data) {
+         console.log("posted");
+        }, function errorCallback(data) {
+          console.log("didnt go through");
+        });
+      }
   }
-})
+});

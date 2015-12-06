@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'mcwebb.twilio'
   ])
   .config(function ($routeProvider) {
     $routeProvider
